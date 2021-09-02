@@ -7,6 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.2",
+    "axios": "^0.21.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -19,5 +20,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.1.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:julieanntang/booklist_rails.git",
+  "author": "Julie Tang <julieanntang@hotmail.com>",
+  "license": "MIT"
 }
