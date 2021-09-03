@@ -1,10 +1,9 @@
 import React from "react";
-const Book = (props) => {
+
+const Book = ({ title, author }) => {
   
-  const { title, author } = props;
- 
   return (
-    <div className="book-container">
+    <div style={{ margin: "10px", border: "3px solid green" }}>
       <h1>
         {title}
       </h1>

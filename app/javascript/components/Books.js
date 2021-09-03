@@ -1,22 +1,23 @@
 import React from "react";
 import Book from "./Book";
 
-const Books = (props) => {
-  const { books } = props;
+const Books = ({ books }) => {
   
-  const renderBooks = () => {
-    if (books.length == 0) {
-      return <h1>No Books</h1>;
-    }
-    return books.map((book) => {
-      return <Book key={book.title} {...book} />;
-    });
-  };
+  // const renderBooks = () => {
+  //   if (books.length == 0) {
+  //     return <h1>No Books</h1>;
+  //   }
+  //   return books.map((book) => {
+  //     return <Book key={book.title} {...book} />;
+  //   });
+  // };
   
  return (
-    <div className="books-container">
-      <h1>Books Component</h1>
-      {renderBooks()}
+    <div style={{ margin: "10px", border: "3px solid blue" }}>
+      <h1>Books</h1>
+      {books.map((book) => (
+      <Book key={book.id} {...book} />
+      ))}
     </div>
   );
 };

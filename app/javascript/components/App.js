@@ -7,21 +7,19 @@ const App = (props) => {
   
 
   const [books, setBooks] = useState([]);
+
   
   const getBooks = async () => {
-    
-    let res = await axios.get("https://fakerapi.it/api/v1/books?_quantity=5");
-    
-    console.log(res);
-    console.log(res.data);
-    
-    setBooks(res.data);
+    try {
+      let res = await axios.get("/books");
+      setBooks(res.data);
+    } catch (err) {}
   };
 
   return (
-    <div className="app-container">
+    <div style={{ margin: "10px", border: "3px solid black" }}>
       <h1>App Page</h1>
-      <button onClick={getBooks}>Get Book</button>
+      <button onClick={getBooks}>Get Books</button>
       <BookForm />
       <Books books={books} />
     </div>

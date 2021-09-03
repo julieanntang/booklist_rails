@@ -4,8 +4,8 @@ class BooksController < ApplicationController
   end
   
   def index
-    @books = Book.order(title: :author)
-    render json: @books
+    books = Book.all.order(title: :desc)
+    render json: books
   end
 
   def create
