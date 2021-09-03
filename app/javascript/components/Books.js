@@ -16,7 +16,7 @@ const Books = ({ books, deleteBook }) => {
     <div style={{ margin: "10px", border: "3px solid blue" }}>
       <h1>Books</h1>
       {books.map((book) => (
-      <Book deleteBook={deleteBook} key={book.title} {...book} />
+      <Book deleteBook={deleteBook} key={book.id} {...book} />
       ))}
     </div>
   );

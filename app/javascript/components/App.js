@@ -32,10 +32,10 @@ const App = (props) => {
     }
   }
 
-  const deleteBook = async (title) => {
+  const deleteBook = async (id) => {
     try {
-      await axios.delete("/books/${title}")
-      const newBooks = books.filter(book => book.title !== title);
+      await axios.delete(`/books/${id}`)
+      const newBooks = books.filter(book => book.id !== id);
       setBooks(newBooks);
 
   } catch(err) {
