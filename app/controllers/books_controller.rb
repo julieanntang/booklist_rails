@@ -9,8 +9,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    if book.save
+    book = Book.new(books_params)
+    if(book.save)
       render json: book
     else
       render json: { errors: book.errors }, status: :unprocessable_entity
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
  
   private
  
-  def book_params
+  def books_params
     params.require(:book).permit(:title, :author)
   end
 end

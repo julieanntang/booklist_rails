@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root "books#app"
 
   get "/books", to: "books#index"
+  post "/books", to: "items#create"
+  
 end

@@ -7,6 +7,7 @@ const App = (props) => {
   
 
   const [books, setBooks] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   
   const getBooks = async () => {
@@ -16,11 +17,30 @@ const App = (props) => {
     } catch (err) {}
   };
 
+  const addBook = async (book) => {
+    console.log(book);
+    try {
+      
+      let res = await axios.post("/books", book);
+      console.log(res);
+      let newBooks = [res.data, ...books];
+      setBooks(newBooks)
+
+    } catch(err) {
+      alert("failed to create");
+      console.log(err);
+    }
+  }
+
   return (
     <div style={{ margin: "10px", border: "3px solid black" }}>
-      <h1>App Page</h1>
+      <h1>Book List</h1>
+      <button onClick={() => setShowForm(!showForm)}>
+        {showForm ? "hide" : "New Book Form"}
+        </button>
+        <br />
+      {showForm && <BookForm addBookProp={addBook} />}
       <button onClick={getBooks}>Get Books</button>
-      <BookForm />
       <Books books={books} />
     </div>
   );
