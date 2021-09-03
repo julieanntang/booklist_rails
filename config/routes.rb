@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   get "/books", to: "books#index"
   post "/books", to: "items#create"
-  
+
+  delete "/books/:id", to: "books#destroy"
+
 end

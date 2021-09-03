@@ -32,6 +32,19 @@ const App = (props) => {
     }
   }
 
+  const deleteBook = async (title) => {
+    try {
+      await axios.delete("/books/${title}")
+      const newBooks = books.filter(book => book.title !== title);
+      setBooks(newBooks);
+
+  } catch(err) {
+      alert("failed to delete");
+      console.log(err);
+    }
+  }
+   
+
   return (
     <div style={{ margin: "10px", border: "3px solid black" }}>
       <h1>Book List</h1>
@@ -41,7 +54,7 @@ const App = (props) => {
         <br />
       {showForm && <BookForm addBookProp={addBook} />}
       <button onClick={getBooks}>Get Books</button>
-      <Books books={books} />
+      <Books books={books} deleteBook={deleteBook} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import Book from "./Book";
 
-const Books = ({ books }) => {
+const Books = ({ books, deleteBook }) => {
   
   // const renderBooks = () => {
   //   if (books.length == 0) {
@@ -16,7 +16,7 @@ const Books = ({ books }) => {
     <div style={{ margin: "10px", border: "3px solid blue" }}>
       <h1>Books</h1>
       {books.map((book) => (
-      <Book key={book.id} {...book} />
+      <Book deleteBook={deleteBook} key={book.title} {...book} />
       ))}
     </div>
   );
